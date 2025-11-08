@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit Ambasta - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            /* Light main background */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #1a1a2e;
+            /* Dark secondary */
+            color: #fff;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .photo-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #16213e;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.8em;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0f3460;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #16213e;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contacts-section {
+            background-color: #1a1a2e;
+            color: #fff;
+        }
+
+        .contacts-section h2 {
+            color: #fff;
+            border-bottom: 2px solid #16213e;
+        }
+
+        h2 {
+            color: #1a1a2e;
+            border-bottom: 2px solid #16213e;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .contacts {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            min-width: 120px;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-item p {
+            color: #fff;
+            margin: 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .project-links {
+            margin-top: auto;
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .project-links a {
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        .btn-github {
+            background-color: #1a1a2e;
+            color: #fff;
+        }
+
+        .btn-github:hover {
+            background-color: #16213e;
+        }
+
+        .btn-demo {
+            background-color: #0f3460;
+            color: #fff;
+        }
+
+        .btn-demo:hover {
+            background-color: #16213e;
+        }
+
+        .skills-category {
+            margin-bottom: 20px;
+        }
+
+        .skills-category h3 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #16213e;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        .education,
+        .experience,
+        .certifications {
+            display: grid;
+            gap: 20px;
+        }
+
+        .item {
+            border-left: 3px solid #16213e;
+            padding-left: 20px;
+        }
+
+        .item h3 {
+            color: #1a1a2e;
+        }
+
+        .experience p {
+            margin-top: 10px;
+        }
+
+        .cert-link {
+            color: #1a1a2e;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contacts {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-icon {
+                font-size: 1.2em;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ANKIT AMBASTA</h1>
+
+        <div class="photo-placeholder">
+            <image src="AnkitBitMoji.png" alt="Ankit Ambasta Photo"
+                style="width: 100%; height: 100%; border-radius: 50%;">
+        </div>
+        <a href="https://drive.google.com/file/d/1-Sm7oSSIl8Whl1Sq9_ihC7bkM1fJiGPm/view?usp=drive_link" download
+            class="download-btn">Download Resume</a>
+    </header>
+
+    <div class="container">
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>Passionate Computer Science Engineering student with a specialization in Internet of Things. Experienced
+                in AI/ML, IoT, and full-stack development.My core interest lies in building comprehensive big data
+                platforms that seamlessly integrate hardware sensors for real-time data acquisition, edge processing for
+                efficient performance optimization, scalable cloud infrastructures for storage and analytics, and
+                interactive dashboards for insightful visualizations. Eager to leverage these skills in innovative
+                projects to contribute to cutting-edge technologies. Proven track record in developing scalable systems
+                for industrial safety and data analytics.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="education experience">
+                <div class="item">
+                    <h3>Android Development Intern </h3>
+                    <p><strong>IMARTICUS Learning</strong> | May 2025 – June 2025 | Remote</p>
+                    <p>Completed intensive 60-hour comprehensive industry-standard Android development program with
+                        extensive hands-on practical experience. Developed and deployed MediTrack healthcare application
+                        using advanced MVVM architecture, SQLite database management, and secure REST APIs. Gained
+                        expertise in Material Design components, Android activity lifecycle management, Git workflows,
+                        and automated testing frameworks.</p>
+                </div>
+                <div class="item">
+                    <h3>Youth Red Cross (YRC) Volunteer</h3>
+                    <p><strong>Vellore Institute of Technology</strong> | 1 Year | Vellore, India</p>
+                    <p>As part of my extra co-curricular activities at college, I actively volunteered with the Youth
+                        Red Cross (YRC) unit for one year, participating in various community service initiatives and
+                        health awareness campaigns. This included organizing blood donation drives, conducting workshops
+                        on first aid and hygiene, and supporting disaster relief efforts during local emergencies. My
+                        motivation stemmed from a deep passion for social impact and community well-being, driven by a
+                        personal commitment to empathy, compassion, and making a tangible difference in people's lives.
+                        This experience reinforced my
+                        dedication to fostering positive change through direct human connection and support.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>KharchaWise</h3>
+                    <p class="project-tech">Firebase, JavaScript, HTML/CSS, REST APIs</p>
+                    <p>Developed highly scalable real-time financial management web application using Firebase
+                        architecture, successfully processing 500+ concurrent users. Implemented robust secure JWT
+                        authentication protocols, intelligent automated budgeting algorithms, and comprehensive
+                        analytics dashboard.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/A-Square8/KharchaWise" target="_blank" class="btn-github">GitHub</a>
+                        <a href="https://kharcha-wise.vercel.app/" target="_blank" class="btn-demo">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>AI-Powered Industrial Safety Monitoring System</h3>
+                    <p class="project-tech">ESP32, MongoDB, Node.js, Python, ML/AI</p>
+                    <p>Engineered advanced distributed IoT-based safety monitoring system processing 10,000+ sensor
+                        readings hourly with 85% accuracy performance. Implemented sophisticated machine learning
+                        pipeline with Isolation Forest anomaly detection and XGBoost classifier reducing false alerts by
+                        60%.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/A-Square8/AI-Powered-Industrial-Safety-Monitoring-System"
+                            target="_blank" class="btn-github">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>AI-Based Gas Leak Detection & Prevention System (TRA + IF)</h3>
+                    <p class="project-tech">Python, TensorFlow, Isolation Forest, TRA, IoT Analytics</p>
+                    <p>Built unsupervised gas leak detection system using Twin Robust Autoencoder and Isolation Forest
+                        for real-time industrial safety monitoring. Processed 13,900+ multichannel sensor readings with
+                        PCA feature reduction and temporal window encoding to handle drift and noise efficiently.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/A-Square8/AI-Gas-Leak-Detection-and-Prevention-using-TRA-and-IF"
+                            target="_blank" class="btn-github">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Astronomy Observation Insights Dashboard</h3>
+                    <p class="project-tech">Python, Feature Engineering, Data Analytics, Visualization</p>
+                    <p>Designed comprehensive data analytics dashboard for exoplanet discovery analysis using Python and
+                        Streamlit frameworks effectively. Built advanced modular pipeline with automated data cleaning,
+                        feature engineering, and statistical analysis capabilities successfully.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/A-Square8/exoplanet-dashboard" target="_blank"
+                            class="btn-github">GitHub</a>
+                        <a href="https://d5bnifwxsfo44bey8cp5dj.streamlit.app/" target="_blank" class="btn-demo">Live
+                            Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Smart Wearable Suit for Industrial Workers</h3>
+                    <p class="project-tech">ESP32, DHT22, DS18B20, MQ-35, MPU6050, MAX30102, Hall Effect Sensor, MQTT,
+                        Python, Data Visualization</p>
+                    <p>ESP32-based smart wearable suit with custom PCB integrating DHT22, DS18B20, MQ-35, MPU6050,
+                        MAX30102, and Hall sensors for real-time worker safety. Firmware, WorWi simulation, MQTT Python
+                        dashboard for hazard alerts.</p>
+                    <div class="project-links">
+                        <a href="" target="_blank"
+                            class="btn-demo">Simulation</a>
+                    </div>
+                </div>
+
+
+                <!-- Added projects based on profile fit -->
+                <div class="project-card">
+                    <h3>FinSentiment Pro</h3>
+                    <p class="project-tech">Python, FinBERT, TensorFlow, Scikit-learn</p>
+                    <p>Developed a financial sentiment analysis tool using FinBERT model, achieving 82% accuracy in
+                        predicting market sentiments from news data. Integrated with APIs for real-time analysis.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/A-Square8/FinSentiment-Pro" target="_blank"
+                            class="btn-github">GitHub</a>
+                    </div>
+                </div>
+
+
+
+                <div class="project-card">
+                    <h3>MediTrack Healthcare App</h3>
+                    <p class="project-tech">Kotlin, Android, MVVM, SQLite, REST APIs</p>
+                    <p>Built a mobile app for medication tracking with reminders and secure data sync, utilizing MVVM
+                        architecture for efficient state management.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/A-Square8/MediTrack" target="_blank" class="btn-github">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Ammonia Safety Monitor</h3>
+                    <p class="project-tech">ESP32, MQ-137, Blynk, IoT</p>
+                    <p>IoT-based wearable system for real-time ammonia detection with alerts via Blynk app, ensuring
+                        worker safety in industrial environments.</p>
+                    <div class="project-links">
+                        <a href="https://wokwi.com/projects/443687155950431233" target="_blank"
+                            class="btn-demo">Simulation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Web & App Development</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express.js</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                    <span class="skill-tag">Streamlit</span>
+                    <span class="skill-tag">Android (Kotlin)</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Data Science & ML</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">XGBoost</span>
+                    <span class="skill-tag">LSTM</span>
+                    <span class="skill-tag">Feature Engineering</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Data Analysis & Visualization</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Statistical Analysis</span>
+                    <span class="skill-tag">Plotly</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Seaborn</span>
+                    <span class="skill-tag">Interactive Dashboards</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Cloud & DevOps</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Google Cloud</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Git/GitHub</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Agile</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>IoT & Embedded</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">ESP32</span>
+                    <span class="skill-tag">MQTT</span>
+                    <span class="skill-tag">CoAP</span>
+                    <span class="skill-tag">BLE</span>
+                    <span class="skill-tag">ZigBee</span>
+                    <span class="skill-tag">NB-IoT</span>
+                    <span class="skill-tag">M2M</span>
+                    <span class="skill-tag">6LoWPAN</span>
+                    <span class="skill-tag">Edge Analysis</span>
+                    <span class="skill-tag">Sensor/Actuator Interface</span>
+                    <span class="skill-tag">8051</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="education">
+                <div class="item">
+                    <h3>Google Cloud Data Analytics Certificate</h3>
+                    <p>Data Analysis, SQL, BigQuery, Visualization</p>
+                    <a href="https://www.credly.com/badges/d446f68a-97d8-47da-ad54-726e38d0a151/public_url"
+                        target="_blank" class="cert-link">View Credential</a>
+                </div>
+                <div class="item">
+                    <h3>Google Cloud Computing Foundations Certificate</h3>
+                    <p>Cloud Computing, Networking, GCP Basics, Virtualization</p>
+                    <a href="https://www.credly.com/badges/61900554-d814-4661-bb5e-5b0f8b4106cd/public_url"
+                        target="_blank" class="cert-link">View Credential</a>
+                </div>
+                <div class="item">
+                    <h3>Sanfoundry IoT Certification</h3>
+                    <p>92% Score | In-depth IoT: Protocols (MQTT, CoAP), Sensors/Actuators, Security, Edge Computing,
+                        Cloud Integration</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education">
+                <div class="item">
+                    <h3>Vellore Institute of Technology</h3>
+                    <p><strong>B.Tech - Computer Science & Engineering With Internet of Things</strong> | CGPA: 8.7 |
+                        July 2022 – July 2026 | Vellore, India</p>
+                </div>
+                <div class="item">
+                    <h3>Air Force School Agra - Intermediate (12th)</h3>
+                    <p>92.2% | April 2022 | Agra, India</p>
+                </div>
+                <div class="item">
+                    <h3>Air Force School Agra - Matriculation (10th)</h3>
+                    <p>87.2% | April 2022 | Agra, India</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="contacts-section">
+            <h2>Contacts</h2>
+            <div class="contacts">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <a href="tel:+916395727518">+91 6395727518</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <a href="mailto:ambastaankit8@gmail.com">ambastaankit8@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <p>Gujarat, India</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <a href="https://linkedin.com/in/ankit-ambasta-4a58002b9" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <a href="https://github.com/A-Square8" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Simple JS for smooth scrolling to sections if needed
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
