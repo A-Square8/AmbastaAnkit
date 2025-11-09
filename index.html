@@ -18,7 +18,6 @@
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
-            /* Light main background */
         }
 
         .container {
@@ -30,7 +29,6 @@
         header {
             text-align: center;
             background-color: #1a1a2e;
-            /* Dark secondary */
             color: #fff;
             padding: 40px 20px;
             margin-bottom: 40px;
@@ -164,6 +162,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .project-card:hover {
@@ -174,6 +173,7 @@
         .project-card h3 {
             color: #1a1a2e;
             margin-bottom: 10px;
+            padding-right: 30px;
         }
 
         .project-tech {
@@ -216,6 +216,197 @@
 
         .btn-demo:hover {
             background-color: #16213e;
+        }
+
+        .detail-arrow {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background-color: #0f3460;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+
+        .detail-arrow:hover {
+            background-color: #16213e;
+            transform: scale(1.1);
+        }
+
+        /* Project Detail Modal */
+        .project-detail-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .project-detail-modal.active {
+            display: block;
+        }
+
+        .project-detail-content {
+            background-color: #fff;
+            max-width: 1000px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .detail-header {
+            background-color: #1a1a2e;
+            color: #fff;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+
+        .detail-header h2 {
+            color: #fff;
+            border: none;
+            padding: 0;
+            margin: 0 40px 10px 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .detail-body {
+            padding: 30px;
+        }
+
+        .detail-section {
+            margin-bottom: 30px;
+        }
+
+        .detail-section h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-left: 4px solid #0f3460;
+            padding-left: 15px;
+        }
+
+        .detail-section p, .detail-section ul {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .detail-section ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        .detail-section li {
+            margin-bottom: 8px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .metric-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #0f3460;
+        }
+
+        .metric-box .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #0f3460;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .metric-box .metric-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .screenshot-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .screenshot-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        .screenshot-caption {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background-color: #16213e;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
         }
 
         .skills-category {
@@ -298,6 +489,14 @@
                 font-size: 1.2em;
             }
 
+            .project-detail-content {
+                margin: 20px;
+                max-width: calc(100% - 40px);
+            }
+
+            .detail-body {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -307,7 +506,7 @@
         <h1>ANKIT AMBASTA</h1>
 
         <div class="photo-placeholder">
-            <image src="AnkitBitMoji.png" alt="Ankit Ambasta Photo"
+            <img src="AnkitBitMoji.png" alt="Ankit Ambasta Photo"
                 style="width: 100%; height: 100%; border-radius: 50%;">
         </div>
         <a href="https://drive.google.com/file/d/1x5xSZvDPm8WudvyH8KtasmD2RJ6EAJeD/view?usp=drive_link" download
@@ -318,7 +517,7 @@
         <section id="about" class="about">
             <h2>About Me</h2>
             <p>Passionate Computer Science Engineering student with a specialization in Internet of Things. Experienced
-                in AI/ML, IoT, and full-stack development.My core interest lies in building comprehensive big data
+                in AI/ML, IoT, and full-stack development. My core interest lies in building comprehensive big data
                 platforms that seamlessly integrate hardware sensors for real-time data acquisition, edge processing for
                 efficient performance optimization, scalable cloud infrastructures for storage and analytics, and
                 interactive dashboards for insightful visualizations. Eager to leverage these skills in innovative
@@ -347,8 +546,7 @@
                         on first aid and hygiene, and supporting disaster relief efforts during local emergencies. My
                         motivation stemmed from a deep passion for social impact and community well-being, driven by a
                         personal commitment to empathy, compassion, and making a tangible difference in people's lives.
-                        This experience reinforced my
-                        dedication to fostering positive change through direct human connection and support.</p>
+                        This experience reinforced my dedication to fostering positive change through direct human connection and support.</p>
                 </div>
             </div>
         </section>
@@ -356,6 +554,21 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="projects-grid">
+                <div class="project-card">
+                    <div class="detail-arrow" onclick="openProjectDetail('gas-leak')">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <h3>AI-Based Gas Leak Detection & Prevention System (TRA + IF)</h3>
+                    <p class="project-tech">Python, TensorFlow, Isolation Forest, TRA, IoT Analytics</p>
+                    <p>Built unsupervised gas leak detection system using Twin Robust Autoencoder and Isolation Forest
+                        for real-time industrial safety monitoring. Processed 13,900+ multichannel sensor readings with
+                        PCA feature reduction and temporal window encoding to handle drift and noise efficiently.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/A-Square8/AI-Gas-Leak-Detection-and-Prevention-using-TRA-and-IF"
+                            target="_blank" class="btn-github">GitHub</a>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <h3>KharchaWise</h3>
                     <p class="project-tech">Firebase, JavaScript, HTML/CSS, REST APIs</p>
@@ -368,6 +581,7 @@
                         <a href="https://kharcha-wise.vercel.app/" target="_blank" class="btn-demo">Live Demo</a>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <h3>AI-Powered Industrial Safety Monitoring System</h3>
                     <p class="project-tech">ESP32, MongoDB, Node.js, Python, ML/AI</p>
@@ -380,17 +594,7 @@
                             target="_blank" class="btn-github">GitHub</a>
                     </div>
                 </div>
-                <div class="project-card">
-                    <h3>AI-Based Gas Leak Detection & Prevention System (TRA + IF)</h3>
-                    <p class="project-tech">Python, TensorFlow, Isolation Forest, TRA, IoT Analytics</p>
-                    <p>Built unsupervised gas leak detection system using Twin Robust Autoencoder and Isolation Forest
-                        for real-time industrial safety monitoring. Processed 13,900+ multichannel sensor readings with
-                        PCA feature reduction and temporal window encoding to handle drift and noise efficiently.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/A-Square8/AI-Gas-Leak-Detection-and-Prevention-using-TRA-and-IF"
-                            target="_blank" class="btn-github">GitHub</a>
-                    </div>
-                </div>
+
                 <div class="project-card">
                     <h3>Astronomy Observation Insights Dashboard</h3>
                     <p class="project-tech">Python, Feature Engineering, Data Analytics, Visualization</p>
@@ -404,6 +608,7 @@
                             Demo</a>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <h3>Smart Wearable Suit for Industrial Workers</h3>
                     <p class="project-tech">ESP32, DHT22, DS18B20, MQ-35, MPU6050, MAX30102, Hall Effect Sensor, MQTT,
@@ -417,8 +622,6 @@
                     </div>
                 </div>
 
-
-                <!-- Added projects based on profile fit -->
                 <div class="project-card">
                     <h3>FinSentiment Pro</h3>
                     <p class="project-tech">Python, FinBERT, TensorFlow, Scikit-learn</p>
@@ -430,8 +633,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="project-card">
                     <h3>MediTrack Healthcare App</h3>
                     <p class="project-tech">Kotlin, Android, MVVM, SQLite, REST APIs</p>
@@ -441,6 +642,7 @@
                         <a href="https://github.com/A-Square8/MediTrack" target="_blank" class="btn-github">GitHub</a>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <h3>Ammonia Safety Monitor</h3>
                     <p class="project-tech">ESP32, MQ-137, Blynk, IoT</p>
@@ -612,15 +814,257 @@
         </section>
     </div>
 
+
+    <div id="project-detail-modal" class="project-detail-modal">
+        <div class="project-detail-content">
+            <div class="detail-header">
+                <h2 id="detail-title">Project Title</h2>
+                <button class="close-btn" onclick="closeProjectDetail()">×</button>
+            </div>
+            <div class="detail-body" id="detail-body">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Simple JS for smooth scrolling to sections if needed
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
+        });
+
+
+        const projectDetails = {
+            'gas-leak': {
+                title: 'AI-Based Gas Leak Detection & Prevention System (TRA + IF)',
+                tech: ['Python', 'TensorFlow', 'Keras', 'Scikit-learn', 'Isolation Forest', 'LSTM', 'Autoencoders', 'Streamlit', 'NumPy', 'Pandas'],
+                problemStatement: `Industrial gas leak detection is a critical safety requirement in manufacturing, chemical, and refinery operations. Traditional detection systems struggle with several key challenges:
+                <ul>
+                    <li><strong>High False Alarm Rates:</strong> Conventional threshold-based systems generate 20-30% false positives due to sensor fluctuations caused by temperature, humidity, and pressure variations</li>
+                    <li><strong>Sensor Drift:</strong> Metal-oxide semiconductor sensors experience nonlinear degradation over time, reducing accuracy and requiring frequent manual recalibration across large sensor networks</li>
+                    <li><strong>Lack of Labeled Data:</strong> Supervised learning requires annotated leak samples, which are expensive, hazardous, and impractical to generate in live industrial plants</li>
+                    <li><strong>Detection Latency:</strong> Delayed detection of gas leaks can lead to catastrophic incidents, environmental hazards, and human casualties</li>
+                    <li><strong>Limited Adaptability:</strong> Single-algorithm approaches force trade-offs between speed and accuracy, failing to generalize under unseen operational conditions</li>
+                </ul>
+                The project addresses the critical question: <em>Can a hybrid unsupervised framework achieve accurate, low-latency leak detection without labeled data while maintaining industrial IoT readiness?</em>`,
+                
+                solution: `The system employs a novel hybrid architecture combining two complementary AI techniques:
+                
+                <h4>1. Twin Robust Autoencoder (T-RAE) Architecture</h4>
+                <ul>
+                    <li><strong>R-LSTM-AE (Robust LSTM Autoencoder):</strong> Captures temporal dependencies in gas concentration sequences using LSTM layers (64→32 units) with GaussianNoise (σ=0.1) for drift robustness and L1 regularization</li>
+                    <li><strong>R-1D-CAE (Robust 1D Convolutional Autoencoder):</strong> Extracts spatial features and local patterns using Conv1D filters (64→32 channels, kernel=3) with MaxPooling and UpSampling layers</li>
+                    <li>Both networks trained with MSE loss using Adam optimizer over 50 epochs to minimize reconstruction errors</li>
+                </ul>
+                
+                <h4>2. Isolation Forest for Rapid Screening</h4>
+                <ul>
+                    <li>Efficient unsupervised outlier detection with O(n log n) complexity</li>
+                    <li>Configured with 200 estimators and 10% contamination threshold</li>
+                    <li>Provides fast pre-filtering of gross anomalies like sensor failures</li>
+                </ul>
+                
+                <h4>3. Data Processing Pipeline</h4>
+                <ul>
+                    <li><strong>Dataset:</strong> UCI Gas Sensor Array Drift Dataset with 13,910 samples across 6 gases (Ammonia, Acetone, Acetylene, Ethanol, Ethylene, Methane)</li>
+                    <li><strong>Preprocessing:</strong> StandardScaler normalization, PCA dimensionality reduction (128→13 features retaining 95% variance)</li>
+                    <li><strong>Sequence Generation:</strong> Sliding window (length=10) creates time-series arrays for temporal modeling</li>
+                    <li><strong>Synthetic Anomalies:</strong> Injected 20% anomalies (50% Gaussian drift σ=3.0, 50% uniform spikes 1.5-5.0×) for robust training</li>
+                </ul>
+                
+                <h4>4. Hierarchical Decision Fusion</h4>
+                <ul>
+                    <li>Weighted ensemble combining 60% T-RAE reconstruction errors + 40% Isolation Forest scores</li>
+                    <li>Unsupervised thresholding at 80th percentile generates binary anomaly predictions</li>
+                    <li>Per-gas evaluation enables detection of subtle leak signatures</li>
+                </ul>
+                
+                <h4>5. Real-Time Monitoring Dashboard</h4>
+                <ul>
+                    <li>Streamlit-based interactive interface with live gas concentration plots</li>
+                    <li>Plotly visualizations with red anomaly markers for immediate alerts</li>
+                    <li>Adjustable simulation speeds (0.25×-8×) and controls (start/pause/reset)</li>
+                    <li>Dynamic metrics display (accuracy, precision, F1-score) and notification logs</li>
+                </ul>`,
+                
+                results: `<div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-value">96.33%</span>
+                        <span class="metric-label">Overall Accuracy</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-value">90.83%</span>
+                        <span class="metric-label">Precision</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-value">90.83%</span>
+                        <span class="metric-label">F1-Score</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-value">2.3%</span>
+                        <span class="metric-label">False Positive Rate</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-value">&lt;50ms</span>
+                        <span class="metric-label">Inference Latency</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-value">14%</span>
+                        <span class="metric-label">Improvement vs Single Models</span>
+                    </div>
+                </div>
+                
+                <h4>Per-Gas Detection Performance</h4>
+                <ul>
+                    <li><strong>Ammonia:</strong> 97.26% accuracy, 93.53% F1-score (highest performance)</li>
+                    <li><strong>Acetone:</strong> 97.01% accuracy, 93.08% F1-score</li>
+                    <li><strong>Acetaldehyde:</strong> 95.61% accuracy, 89.94% F1-score</li>
+                    <li><strong>Ethylene:</strong> 96.08% accuracy, 89.78% F1-score</li>
+                    <li><strong>Toluene:</strong> 96.46% accuracy, 90.78% F1-score</li>
+                    <li><strong>Ethanol:</strong> 95.69% accuracy, 87.64% F1-score</li>
+                </ul>
+                
+                <h4>Confusion Matrix Analysis</h4>
+                <ul>
+                    <li>True Positives: 505 (correctly identified anomalies)</li>
+                    <li>True Negatives: 2,174 (correctly identified normal readings)</li>
+                    <li>False Positives: 51 (only 2.3% of normal readings misclassified)</li>
+                    <li>False Negatives: 51 (9.2% of anomalies missed)</li>
+                </ul>
+                
+                <div class="screenshot-container">
+                    <img src="src/gas-leak-demo1.png" alt="Gas Concentration Time Series" onerror="this.style.display='none'">
+                    <p class="screenshot-caption">Screenshot 1: Real-time gas concentration monitoring with detected anomalies marked in red</p>
+                </div>
+                
+                
+                
+                <h4>Key Achievements</h4>
+                <ul>
+                    <li>Reduced false alarm rate from 20-30% (traditional systems) to 2.3%</li>
+                    <li>Achieved 14% performance improvement over individual models through ensemble fusion</li>
+                    <li>Maintained inference latency under 50ms per sample for real-time deployment</li>
+                    <li>Successfully handled sensor drift and environmental noise without manual recalibration</li>
+                    <li>Processed 13,910 high-dimensional samples with 128 features each</li>
+                    <li>Validated robustness through synthetic anomaly injection and cross-validation</li>
+                </ul>`,
+                
+                lessons: `<h4>Technical Insights</h4>
+                <ul>
+                    <li><strong>Hybrid Superiority:</strong> Combining fast statistical methods (Isolation Forest) with deep learning (T-RAE) provides better sensitivity-specificity balance than either approach alone</li>
+                    <li><strong>Regularization Importance:</strong> GaussianNoise layers and L1 regularization were critical for handling real-world sensor drift and preventing overfitting</li>
+                    <li><strong>PCA Effectiveness:</strong> Reducing 128 features to 13 components (95% variance retained) significantly improved computational efficiency without sacrificing accuracy</li>
+                    <li><strong>Sequence Windowing:</strong> 10-sample sliding windows effectively captured temporal patterns while maintaining manageable memory footprint</li>
+                    <li><strong>Unsupervised Advantage:</strong> Label-free training enables deployment in environments where generating leak samples is hazardous</li>
+                </ul>
+                
+                <h4>Challenges Overcome</h4>
+                <ul>
+                    <li><strong>Data Imbalance:</strong> Synthetic anomaly injection (20% contamination) enabled robust model training without real leak data</li>
+                    <li><strong>Gas Variability:</strong> Per-gas normalization and stratified splitting ensured fair evaluation across chemically diverse gases</li>
+                    <li><strong>Model Fusion:</strong> Extensive hyperparameter tuning identified 60-40 weighting as optimal for balancing precision and recall</li>
+                    <li><strong>Computational Constraints:</strong> Optimized architecture allows training in 4-6 hours on CPU, under 1 hour on GPU</li>
+                </ul>
+                
+                <h4>Future Enhancements</h4>
+                <ul>
+                    <li><strong>Adaptive Thresholding:</strong> Implement online learning to automatically adjust detection thresholds based on operational conditions</li>
+                    <li><strong>Multi-Modal Integration:</strong> Incorporate additional sensor types (thermal, acoustic) for enhanced leak localization</li>
+                    <li><strong>Edge Deployment:</strong> Optimize models for deployment on IoT edge devices (Raspberry Pi, NVIDIA Jetson) for distributed monitoring</li>
+                    <li><strong>Predictive Maintenance:</strong> Extend system to forecast sensor degradation and schedule proactive maintenance</li>
+                    <li><strong>Real-World Validation:</strong> Partner with industrial facilities for pilot testing under actual operational conditions</li>
+                    <li><strong>Explainability:</strong> Add SHAP or LIME analysis to provide interpretable explanations for anomaly decisions</li>
+                    <li><strong>Multi-Gas Interference:</strong> Train models to handle simultaneous leaks of multiple gas types</li>
+                    <li><strong>Transfer Learning:</strong> Develop pre-trained models that can be fine-tuned for new gas types with minimal data</li>
+                </ul>
+                
+                <h4>Industrial Impact</h4>
+                <ul>
+                    <li>Estimated cost savings of $100,000+ per prevented catastrophic leak incident</li>
+                    <li>Reduced operator fatigue through 92% reduction in false alarms</li>
+                    <li>Enhanced workplace safety by detecting subtle pre-leak indicators</li>
+                    <li>Supports regulatory compliance through automated alert logging and reporting</li>
+                    <li>Enables proactive rather than reactive safety management</li>
+                </ul>
+                
+                <h4>Personal Growth</h4>
+                <ul>
+                    <li>Deepened expertise in unsupervised learning and ensemble methods</li>
+                    <li>Gained practical experience in end-to-end ML pipeline development (data preprocessing, model training, deployment)</li>
+                    <li>Developed skills in time-series analysis and anomaly detection</li>
+                    <li>Enhanced ability to balance theoretical performance with real-world deployment constraints</li>
+                    <li>Learned importance of domain knowledge in safety-critical AI systems</li>
+                </ul>`
+            }
+        };
+
+        function openProjectDetail(projectId) {
+            const modal = document.getElementById('project-detail-modal');
+            const detailBody = document.getElementById('detail-body');
+            const detailTitle = document.getElementById('detail-title');
+            
+            const project = projectDetails[projectId];
+            if (!project) return;
+            
+            detailTitle.textContent = project.title;
+            
+            detailBody.innerHTML = `
+                <div class="detail-section">
+                    <h3>Technology Stack</h3>
+                    <div class="tech-stack">
+                        ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Problem Statement</h3>
+                    <p>${project.problemStatement}</p>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Solution Architecture</h3>
+                    ${project.solution}
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Results & Performance Metrics</h3>
+                    ${project.results}
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Lessons Learned & Next Steps</h3>
+                    ${project.lessons}
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectDetail() {
+            const modal = document.getElementById('project-detail-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+
+        document.getElementById('project-detail-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectDetail();
+            }
+        });
+
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProjectDetail();
+            }
         });
     </script>
 </body>
